@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { z } from "zod";
 import Order from "../models/Order.js";
 import { authRequired } from "../middleware/auth.js";
-
+console.log("STRIPE_SECRET_KEY present:", Boolean(process.env.STRIPE_SECRET_KEY));
 const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -23,7 +23,7 @@ router.post(
       mode: "payment",
       line_items: order.items.map((it) => ({
         price_data: {
-          currency: "bgn",
+          currency: "eur",
           product_data: { name: it.title },
           unit_amount: Math.round(it.price * 100)
         },
