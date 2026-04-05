@@ -3,4 +3,36 @@
 @tailwind utilities;
 
 :root { color-scheme: dark; }
-body { @apply bg-zinc-950 text-zinc-100; }
+
+body {
+  @apply bg-gradient-to-b from-zinc-950 via-zinc-950 to-black text-zinc-100 antialiased;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+.container-app {
+  @apply mx-auto max-w-6xl px-4;
+}
+
+.card {
+  @apply rounded-2xl border border-zinc-800/70 bg-zinc-950/70 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition;
+}
+.btn-primary {
+  @apply bg-white text-zinc-950 hover:bg-zinc-200;
+}
+.btn-ghost {
+  @apply border border-zinc-800 bg-transparent text-zinc-100 hover:bg-zinc-900;
+}
+.btn-danger {
+  @apply text-red-300 hover:text-red-200;
+}
+.input {
+  @apply w-full rounded-xl border border-zinc-800 bg-zinc-950/60 px-3 py-2 text-sm outline-none focus:border-zinc-600;
+}
+.badge {
+  @apply inline-flex items-center rounded-full border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-xs text-zinc-300;
+}

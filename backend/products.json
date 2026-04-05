@@ -1,0 +1,189 @@
+[
+  {
+    "title": "Fender Player Stratocaster (SSS) - Sunburst",
+    "slug": "fender-player-strat-sss-sunburst",
+    "category": "guitar",
+    "brand": "Fender",
+    "price": 799.00,
+    "stock": 4,
+    "description": "Electric guitar with classic Strat feel and versatile single-coil tones. Suitable for rock, funk, pop, blues.",
+    "images": [],
+    "specs": { "body": "Alder", "neck": "Maple", "pickups": "SSS", "color": "3-Color Sunburst" }
+  },
+  {
+    "title": "Fender Player Telecaster (SS) - Butterscotch Blonde",
+    "slug": "fender-player-tele-ss-butterscotch",
+    "category": "guitar",
+    "brand": "Fender",
+    "price": 799.00,
+    "stock": 3,
+    "description": "Classic Tele twang with modern playability. Great for country, indie, rock.",
+    "images": [],
+    "specs": { "body": "Alder", "neck": "Maple", "pickups": "SS", "color": "Butterscotch Blonde" }
+  },
+  {
+    "title": "Ibanez RG550 Genesis - Purple Neon",
+    "slug": "ibanez-rg550-genesis-purple-neon",
+    "category": "guitar",
+    "brand": "Ibanez",
+    "price": 999.00,
+    "stock": 2,
+    "description": "Fast neck and high-output pickups. Built for shred, metal, prog.",
+    "images": [],
+    "specs": { "body": "Basswood", "neck": "Maple", "pickups": "HSH", "color": "Purple Neon" }
+  },
+  {
+    "title": "ESP LTD EC-256 - Black Satin",
+    "slug": "esp-ltd-ec-256-black-satin",
+    "category": "guitar",
+    "brand": "ESP LTD",
+    "price": 549.00,
+    "stock": 5,
+    "description": "Single-cut design with powerful humbuckers. Solid choice for rock/metal.",
+    "images": [],
+    "specs": { "body": "Mahogany", "neck": "Mahogany", "pickups": "HH", "color": "Black Satin" }
+  },
+  {
+    "title": "Yamaha Pacifica 112V - Vintage White",
+    "slug": "yamaha-pacifica-112v-vintage-white",
+    "category": "guitar",
+    "brand": "Yamaha",
+    "price": 329.00,
+    "stock": 6,
+    "description": "Great beginner-to-intermediate electric guitar. Versatile HSS setup.",
+    "images": [],
+    "specs": { "body": "Alder", "neck": "Maple", "pickups": "HSS", "color": "Vintage White" }
+  },
+  {
+    "title": "Epiphone Les Paul Standard 50s - Goldtop",
+    "slug": "epiphone-les-paul-standard-50s-goldtop",
+    "category": "guitar",
+    "brand": "Epiphone",
+    "price": 699.00,
+    "stock": 3,
+    "description": "Classic Les Paul vibe with warm humbucker tones and vintage feel.",
+    "images": [],
+    "specs": { "body": "Mahogany", "neck": "Mahogany", "pickups": "HH", "color": "Goldtop" }
+  },
+  {
+    "title": "Boss Katana-50 MkII (50W) - Guitar Amplifier",
+    "slug": "boss-katana-50-mkii-amp",
+    "category": "accessory",
+    "brand": "Boss",
+    "price": 259.00,
+    "stock": 4,
+    "description": "Versatile combo amp with multiple amp characters and built-in effects.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Black" }
+  },
+  {
+    "title": "Ernie Ball Regular Slinky 10-46 - Strings",
+    "slug": "ernie-ball-regular-slinky-10-46",
+    "category": "part",
+    "brand": "Ernie Ball",
+    "price": 6.99,
+    "stock": 40,
+    "description": "Nickel wound electric guitar strings, gauge 10-46.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "" }
+  },
+  {
+    "title": "D'Addario EXL110 10-46 - Strings",
+    "slug": "daddario-exl110-10-46",
+    "category": "part",
+    "brand": "D'Addario",
+    "price": 6.99,
+    "stock": 35,
+    "description": "Nickel wound electric guitar strings, balanced tone and feel, gauge 10-46.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "" }
+  },
+  {
+    "title": "Graph Tech TUSQ XL Nut (42mm) - Black",
+    "slug": "graph-tech-tusq-xl-nut-42mm-black",
+    "category": "part",
+    "brand": "Graph Tech",
+    "price": 12.50,
+    "stock": 15,
+    "description": "Self-lubricating nut to improve tuning stability and reduce string binding.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Black" }
+  },
+  {
+    "title": "Fender Locking Tuners (6-in-line) - Chrome",
+    "slug": "fender-locking-tuners-6-inline-chrome",
+    "category": "part",
+    "brand": "Fender",
+    "price": 79.00,
+    "stock": 8,
+    "description": "Locking machine heads for faster string changes and improved tuning stability.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Chrome" }
+  },
+  {
+    "title": "Seymour Duncan JB (TB-4) - Bridge Humbucker",
+    "slug": "seymour-duncan-jb-tb4-bridge-humbucker",
+    "category": "part",
+    "brand": "Seymour Duncan",
+    "price": 119.00,
+    "stock": 6,
+    "description": "High-output bridge humbucker known for punchy mids and sustain.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "Humbucker", "color": "Black" }
+  },
+  {
+    "title": "Gotoh Tune-O-Matic Bridge (GE103B) - Chrome",
+    "slug": "gotoh-tune-o-matic-bridge-ge103b-chrome",
+    "category": "part",
+    "brand": "Gotoh",
+    "price": 39.00,
+    "stock": 10,
+    "description": "Replacement TOM bridge for many single-cut style guitars.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Chrome" }
+  },
+  {
+    "title": "Dunlop Tortex Standard 0.88mm (Pack of 12)",
+    "slug": "dunlop-tortex-0-88-pack-12",
+    "category": "accessory",
+    "brand": "Dunlop",
+    "price": 4.99,
+    "stock": 50,
+    "description": "Durable picks with a consistent grip and attack. 0.88mm gauge.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Green" }
+  },
+  {
+    "title": "Planet Waves Instrument Cable 3m - Straight/Straight",
+    "slug": "planet-waves-instrument-cable-3m-ss",
+    "category": "accessory",
+    "brand": "D'Addario",
+    "price": 14.90,
+    "stock": 20,
+    "description": "Reliable 1/4\" instrument cable, 3 meters, straight connectors.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Black" }
+  },
+  {
+    "title": "Guitar Stand - Folding Universal",
+    "slug": "guitar-stand-folding-universal",
+    "category": "accessory",
+    "brand": "Generic",
+    "price": 12.90,
+    "stock": 25,
+    "description": "Foldable guitar stand compatible with most electric/acoustic guitars.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Black" }
+  },
+  {
+    "title": "Strap Locks (Pair) - Chrome",
+    "slug": "strap-locks-pair-chrome",
+    "category": "accessory",
+    "brand": "Generic",
+    "price": 8.90,
+    "stock": 30,
+    "description": "Simple strap locking system to keep your strap secure.",
+    "images": [],
+    "specs": { "body": "", "neck": "", "pickups": "", "color": "Chrome" }
+  }
+]

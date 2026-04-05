@@ -1,3 +1,4 @@
+// frontend/src/pages/ProductDetails.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { http } from "../api/http";
@@ -15,13 +16,13 @@ export default function ProductDetails() {
       .catch((e) => setErr(e.message));
   }, [slug]);
 
-  if (err) return <div className="mx-auto max-w-6xl px-4 py-6 text-red-300">{err}</div>;
-  if (!p) return <div className="mx-auto max-w-6xl px-4 py-6 text-zinc-400">Loading...</div>;
+  if (err) return <div className="container-app py-6 text-red-300">{err}</div>;
+  if (!p) return <div className="container-app py-6 text-zinc-400">Loading...</div>;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
+    <div className="container-app py-6">
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950">
+        <div className="card overflow-hidden">
           <div className="aspect-[4/3] bg-zinc-900">
             {p.images?.[0] ? (
               <img src={p.images[0]} alt={p.title} className="h-full w-full object-cover" />
@@ -31,27 +32,36 @@ export default function ProductDetails() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
-          <div className="text-sm text-zinc-400">{p.brand || p.category}</div>
-          <h1 className="mt-1 text-xl font-semibold">{p.title}</h1>
-          <div className="mt-3 text-2xl">{p.price.toFixed(2)} лв</div>
-          <div className="mt-2 text-sm text-zinc-400">Наличност: {p.stock}</div>
+        <div className="card p-6">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <div className="text-sm text-zinc-400">{p.brand || p.category}</div>
+              <h1 className="mt-1 text-xl font-semibold">{p.title}</h1>
+              <div className="mt-2 flex gap-2">
+                <span className="badge">{p.category}</span>
+                <span className="badge">stock: {p.stock}</span>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-2xl font-semibold">{p.price.toFixed(2)} €</div>
+            </div>
+          </div>
 
-          <button
-            onClick={() => add(p, 1)}
-            className="mt-4 w-full rounded-xl bg-white px-3 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200"
-          >
+          <button onClick={() => add(p, 1)} className="btn btn-primary mt-5 w-full">
             Добави в количка
           </button>
 
-          <div className="mt-5 space-y-2 text-sm text-zinc-300">
+          <div className="mt-5 space-y-3 text-sm text-zinc-300">
             {p.description ? <p>{p.description}</p> : null}
-            <div className="grid gap-2 rounded-xl border border-zinc-800 p-3">
-              <div className="text-zinc-400">Specs</div>
-              <div>Body: {p.specs?.body || "-"}</div>
-              <div>Neck: {p.specs?.neck || "-"}</div>
-              <div>Pickups: {p.specs?.pickups || "-"}</div>
-              <div>Color: {p.specs?.color || "-"}</div>
+
+            <div className="rounded-xl border border-zinc-800/70 p-4">
+              <div className="text-xs text-zinc-400 mb-2">Specs</div>
+              <div className="grid gap-1">
+                <div>Body: {p.specs?.body || "-"}</div>
+                <div>Neck: {p.specs?.neck || "-"}</div>
+                <div>Pickups: {p.specs?.pickups || "-"}</div>
+                <div>Color: {p.specs?.color || "-"}</div>
+              </div>
             </div>
           </div>
         </div>

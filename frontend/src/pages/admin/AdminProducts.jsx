@@ -1,3 +1,4 @@
+// frontend/src/pages/admin/AdminProducts.jsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { http } from "../../api/http";
@@ -29,19 +30,19 @@ export default function AdminProducts() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
+    <div className="container-app py-6">
       <div className="flex items-center justify-between">
         <div className="text-lg font-semibold">Продукти</div>
-        <Link className="rounded-xl bg-white px-4 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200" to="/admin/products/new">
+        <Link className="btn btn-primary" to="/admin/products/new">
           + Нов продукт
         </Link>
       </div>
 
       {err ? <div className="mt-3 text-sm text-red-300">{err}</div> : null}
 
-      <div className="mt-4 overflow-hidden rounded-2xl border border-zinc-800">
+      <div className="card mt-4 overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-zinc-950">
+          <thead className="bg-zinc-950/60">
             <tr className="text-left text-zinc-400">
               <th className="p-3">Title</th>
               <th className="p-3">Category</th>
@@ -50,19 +51,30 @@ export default function AdminProducts() {
               <th className="p-3"></th>
             </tr>
           </thead>
-          <tbody className="bg-zinc-950">
+          <tbody className="bg-zinc-950/30">
             {products.map((p) => (
-              <tr key={p._id} className="border-t border-zinc-800">
+              <tr key={p._id} className="border-t border-zinc-800 hover:bg-zinc-900/40">
                 <td className="p-3">{p.title}</td>
                 <td className="p-3 text-zinc-400">{p.category}</td>
-                <td className="p-3">{p.price.toFixed(2)} лв</td>
+                <td className="p-3">{p.price.toFixed(2)} €</td>
                 <td className="p-3">{p.stock}</td>
                 <td className="p-3 text-right">
-                  <Link className="mr-3 text-amber-300 hover:text-amber-200" to={`/admin/products/${p._id}`}>Edit</Link>
-                  <button className="text-red-300 hover:text-red-200" onClick={() => del(p._id)}>Delete</button>
+                  <Link className="mr-3 text-amber-300 hover:text-amber-200" to={`/admin/products/${p._id}`}>
+                    Edit
+                  </Link>
+                  <button className="btn btn-danger px-3 py-1.5" onClick={() => del(p._id)}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
+            {products.length === 0 ? (
+              <tr>
+                <td className="p-4 text-zinc-400" colSpan={5}>
+                  Няма продукти.
+                </td>
+              </tr>
+            ) : null}
           </tbody>
         </table>
       </div>

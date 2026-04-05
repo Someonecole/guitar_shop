@@ -23,19 +23,24 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
-        <div className="grid gap-3 md:grid-cols-3">
+    <div className="container-app py-6">
+      <div className="card p-6">
+        <div className="flex flex-col gap-1">
+          <div className="text-2xl font-semibold tracking-tight">Магазин за китари и части</div>
+          <div className="text-sm text-zinc-400">Търси по марка, модел или категория.</div>
+        </div>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Търси (марка/модел)"
-            className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm outline-none focus:border-zinc-600"
+            className="input"
           />
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm outline-none focus:border-zinc-600"
+            className="input"
           >
             <option value="">Всички категории</option>
             <option value="guitar">Китари</option>
@@ -44,11 +49,12 @@ export default function Home() {
           </select>
           <button
             onClick={() => load().catch((e) => setErr(e.message))}
-            className="rounded-xl bg-white px-3 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200"
+            className="btn btn-primary"
           >
             Търси
           </button>
         </div>
+
         {err ? <div className="mt-3 text-sm text-red-300">{err}</div> : null}
       </div>
 
@@ -56,6 +62,11 @@ export default function Home() {
         {products.map((p) => (
           <ProductCard key={p._id} p={p} />
         ))}
+        {products.length === 0 ? (
+          <div className="card p-6 text-sm text-zinc-400 sm:col-span-2 lg:col-span-3">
+            Няма продукти. Добави от Admin → Продукти.
+          </div>
+        ) : null}
       </div>
     </div>
   );

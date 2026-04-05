@@ -1,3 +1,4 @@
+// frontend/src/pages/Cart.jsx
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
@@ -37,15 +38,13 @@ export default function Cart() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
+    <div className="container-app py-6">
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-3">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+          <div className="card p-5">
             <div className="flex items-center justify-between">
               <div className="text-lg font-semibold">Количка</div>
-              <button onClick={clear} className="text-sm text-zinc-300 hover:text-white">
-                Изчисти
-              </button>
+              <button onClick={clear} className="btn btn-ghost px-3 py-1.5">Изчисти</button>
             </div>
 
             {items.length === 0 ? (
@@ -53,27 +52,31 @@ export default function Cart() {
             ) : (
               <div className="mt-4 space-y-3">
                 {items.map((it) => (
-                  <div key={it.productId} className="flex gap-3 rounded-xl border border-zinc-800 p-3">
-                    <div className="h-16 w-20 overflow-hidden rounded-lg bg-zinc-900">
-                      {it.image ? <img src={it.image} alt={it.title} className="h-full w-full object-cover" /> : null}
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-medium">{it.title}</div>
-                      <div className="text-sm text-zinc-400">{it.price.toFixed(2)} лв</div>
-                      <div className="mt-2 flex items-center gap-2">
-                        <input
-                          type="number"
-                          min={1}
-                          value={it.qty}
-                          onChange={(e) => setQty(it.productId, Math.max(1, Number(e.target.value)))}
-                          className="w-20 rounded-lg border border-zinc-800 bg-zinc-950 px-2 py-1 text-sm"
-                        />
-                        <button onClick={() => remove(it.productId)} className="text-sm text-red-300 hover:text-red-200">
-                          Премахни
-                        </button>
+                  <div key={it.productId} className="rounded-xl border border-zinc-800/70 bg-zinc-950/40 p-3">
+                    <div className="flex gap-3">
+                      <div className="h-16 w-20 overflow-hidden rounded-lg bg-zinc-900 ring-1 ring-white/5">
+                        {it.image ? <img src={it.image} alt={it.title} className="h-full w-full object-cover" /> : null}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium truncate">{it.title}</div>
+                        <div className="text-sm text-zinc-400">{it.price.toFixed(2)} €</div>
+                        <div className="mt-2 flex items-center gap-2">
+                          <input
+                            type="number"
+                            min={1}
+                            value={it.qty}
+                            onChange={(e) => setQty(it.productId, Math.max(1, Number(e.target.value)))}
+                            className="input w-24"
+                          />
+                          <button onClick={() => remove(it.productId)} className="btn btn-danger px-3 py-1.5">
+                            Премахни
+                          </button>
+                        </div>
+                      </div>
+                      <div className="text-right text-sm font-semibold">
+                        {(it.price * it.qty).toFixed(2)} €
                       </div>
                     </div>
-                    <div className="text-right text-sm">{(it.price * it.qty).toFixed(2)} лв</div>
                   </div>
                 ))}
               </div>
@@ -82,36 +85,31 @@ export default function Cart() {
         </div>
 
         <div className="space-y-3">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+          <div className="card p-5">
             <div className="text-lg font-semibold">Доставка</div>
             <div className="mt-3 grid gap-2">
-              {[
-                ["name", "Име"],
-                ["address", "Адрес"],
-                ["city", "Град"],
-                ["phone", "Телефон"]
-              ].map(([k, label]) => (
+              {["name", "address", "city", "phone"].map((k) => (
                 <input
                   key={k}
                   value={shipping[k]}
                   onChange={(e) => setShipping((s) => ({ ...s, [k]: e.target.value }))}
-                  placeholder={label}
-                  className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm outline-none focus:border-zinc-600"
+                  placeholder={k}
+                  className="input"
                 />
               ))}
             </div>
           </div>
 
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+          <div className="card p-5">
             <div className="flex items-center justify-between">
               <div className="text-sm text-zinc-400">Subtotal</div>
-              <div className="text-lg">{subtotal.toFixed(2)} лв</div>
+              <div className="text-lg font-semibold">{subtotal.toFixed(2)} €</div>
             </div>
             {err ? <div className="mt-3 text-sm text-red-300">{err}</div> : null}
             <button
               disabled={items.length === 0}
               onClick={createOrderAndPay}
-              className="mt-4 w-full rounded-xl bg-white px-3 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200 disabled:opacity-40"
+              className="btn btn-primary mt-4 w-full disabled:opacity-40"
             >
               Плащане (Stripe)
             </button>
