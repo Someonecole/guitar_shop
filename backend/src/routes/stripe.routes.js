@@ -4,16 +4,26 @@ import Stripe from "stripe";
 import { z } from "zod";
 import Order from "../models/Order.js";
 import { authRequired } from "../middleware/auth.js";
-console.log("STRIPE_SECRET_KEY present:", Boolean(process.env.STRIPE_SECRET_KEY));
-const router = express.Router();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const schema = z.object({ orderId: z.string().min(1) });
+const router = express.Router();
+
+function getStripe() {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error("STRIPE_SECRET_KEY is missing");
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY);
+}
+
+const schema = z.object({
+  orderId: z.string().min(1)
+});
 
 router.post(
   "/create-checkout-session",
   authRequired,
   asyncHandler(async (req, res) => {
+    const stripe = getStripe();
+
     const { orderId } = schema.parse(req.body);
 
     const order = await Order.findOne({ _id: orderId, userId: req.user.sub });
