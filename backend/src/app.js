@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-
 import { notFound, errorHandler } from "./middleware/error.js";
 
 export function createApp({ authRoutes, productRoutes, orderRoutes, stripeRoutes }) {

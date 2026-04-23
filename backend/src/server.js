@@ -1,8 +1,6 @@
 import dotenv from "dotenv";
-
-dotenv.config({ path: process.env.NODE_ENV === "test" ? ".env.test" : ".env" });
 dotenv.config();
-console.log("ENV stripe:", !!process.env.STRIPE_SECRET_KEY);
+
 import { connectDB } from "./config/db.js";
 import { createApp } from "./app.js";
 
