@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { t } from "../i18n/t";
 
 export default function Register() {
   const { register } = useAuth();
   const nav = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,35 +24,54 @@ export default function Register() {
   }
 
   return (
-    <div className="mx-auto max-w-md px-4 py-10">
-      <form onSubmit={submit} className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
-        <div className="text-lg font-semibold">Регистрация</div>
-        {err ? <div className="mt-3 text-sm text-red-300">{err}</div> : null}
-        <div className="mt-4 space-y-3">
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Име"
-            className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm outline-none focus:border-zinc-600"
-          />
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm outline-none focus:border-zinc-600"
-          />
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Парола"
-            type="password"
-            className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm outline-none focus:border-zinc-600"
-          />
-          <button className="w-full rounded-xl bg-white px-3 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200">
-            Създай акаунт
-          </button>
-        </div>
-      </form>
+    <div className="container-app py-10">
+      <div className="mx-auto max-w-md">
+        <form onSubmit={submit} className="card p-6">
+          <div className="text-lg font-semibold">{t("auth.registerTitle")}</div>
+
+          {err ? <div className="mt-3 text-sm text-red-300">{err}</div> : null}
+
+          <div className="mt-4 space-y-3">
+            <div>
+              <label className="block text-xs text-zinc-400 mb-1">{t("auth.name")}</label>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={t("auth.name")}
+                className="input"
+                autoComplete="name"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs text-zinc-400 mb-1">{t("auth.email")}</label>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={t("auth.email")}
+                className="input"
+                autoComplete="email"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs text-zinc-400 mb-1">{t("auth.password")}</label>
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder={t("auth.password")}
+                type="password"
+                className="input"
+                autoComplete="new-password"
+              />
+            </div>
+
+            <button className="btn btn-primary w-full">
+              {t("auth.createAccount")}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

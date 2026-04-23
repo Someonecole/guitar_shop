@@ -1,6 +1,8 @@
+// frontend/src/components/ProductCard.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { t } from "../i18n/t";
 
 export default function ProductCard({ p }) {
   const { add } = useCart();
@@ -17,7 +19,7 @@ export default function ProductCard({ p }) {
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-zinc-500">
-              No image
+              {t("product.noImage")}
             </div>
           )}
         </div>
@@ -29,17 +31,18 @@ export default function ProductCard({ p }) {
             </div>
             <div className="mt-1 line-clamp-2 font-medium">{p.title}</div>
           </div>
+
           <div className="shrink-0 text-right">
             <div className="badge">{p.category}</div>
             <div className="mt-2 text-base font-semibold">
-              {p.price.toFixed(2)} €
+              {Number(p.price).toFixed(2)} €
             </div>
           </div>
         </div>
       </Link>
 
       <button onClick={() => add(p, 1)} className="btn btn-primary mt-4 w-full">
-        Добави в количка
+        {t("product.addToCart")}
       </button>
     </div>
   );

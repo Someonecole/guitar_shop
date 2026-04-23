@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { http } from "../api/http";
 import ProductCard from "../components/ProductCard";
+import { t } from "../i18n/t";
 
 export default function Home() {
   const [q, setQ] = useState("");
@@ -26,15 +27,15 @@ export default function Home() {
     <div className="container-app py-6">
       <div className="card p-6">
         <div className="flex flex-col gap-1">
-          <div className="text-2xl font-semibold tracking-tight">Магазин за китари и части</div>
-          <div className="text-sm text-zinc-400">Търси по марка, модел или категория.</div>
+          <div className="text-2xl font-semibold tracking-tight">{t("home.title")}</div>
+          <div className="text-sm text-zinc-400">{t("home.subtitle")}</div>
         </div>
 
         <div className="mt-5 grid gap-3 md:grid-cols-3">
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Търси (марка/модел)"
+            placeholder={t("home.searchPlaceholder")}
             className="input"
           />
           <select
@@ -42,16 +43,16 @@ export default function Home() {
             onChange={(e) => setCategory(e.target.value)}
             className="input"
           >
-            <option value="">Всички категории</option>
-            <option value="guitar">Китари</option>
-            <option value="part">Части</option>
-            <option value="accessory">Аксесоари</option>
+            <option value="">{t("home.allCategories")}</option>
+            <option value="guitar">{t("home.guitars")}</option>
+            <option value="part">{t("home.parts")}</option>
+            <option value="accessory">{t("home.accessories")}</option>
           </select>
           <button
             onClick={() => load().catch((e) => setErr(e.message))}
             className="btn btn-primary"
           >
-            Търси
+            {t("home.searchBtn")}
           </button>
         </div>
 
@@ -64,7 +65,7 @@ export default function Home() {
         ))}
         {products.length === 0 ? (
           <div className="card p-6 text-sm text-zinc-400 sm:col-span-2 lg:col-span-3">
-            Няма продукти. Добави от Admin → Продукти.
+            {t("home.empty")}
           </div>
         ) : null}
       </div>

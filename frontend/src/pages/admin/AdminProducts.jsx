@@ -1,8 +1,8 @@
-// frontend/src/pages/admin/AdminProducts.jsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { http } from "../../api/http";
 import { useAuth } from "../../context/AuthContext";
+import { t } from "../../i18n/t";
 
 export default function AdminProducts() {
   const { token } = useAuth();
@@ -32,9 +32,9 @@ export default function AdminProducts() {
   return (
     <div className="container-app py-6">
       <div className="flex items-center justify-between">
-        <div className="text-lg font-semibold">Продукти</div>
+        <div className="text-lg font-semibold">{t("admin.products")}</div>
         <Link className="btn btn-primary" to="/admin/products/new">
-          + Нов продукт
+          {t("admin.newProduct")}
         </Link>
       </div>
 
@@ -56,14 +56,14 @@ export default function AdminProducts() {
               <tr key={p._id} className="border-t border-zinc-800 hover:bg-zinc-900/40">
                 <td className="p-3">{p.title}</td>
                 <td className="p-3 text-zinc-400">{p.category}</td>
-                <td className="p-3">{p.price.toFixed(2)} €</td>
+                <td className="p-3">{Number(p.price).toFixed(2)} €</td>
                 <td className="p-3">{p.stock}</td>
                 <td className="p-3 text-right">
                   <Link className="mr-3 text-amber-300 hover:text-amber-200" to={`/admin/products/${p._id}`}>
-                    Edit
+                    {t("admin.edit")}
                   </Link>
                   <button className="btn btn-danger px-3 py-1.5" onClick={() => del(p._id)}>
-                    Delete
+                    {t("admin.delete")}
                   </button>
                 </td>
               </tr>

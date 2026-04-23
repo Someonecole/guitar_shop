@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "fender-player-strat-sss-sunburst",
+    "description": "Електрическа китара с класическо Strat усещане и универсални single-coil тембри. Подходяща за рок, фънк, поп и блус."
+  },
+  {
+    "slug": "fender-player-tele-ss-butterscotch",
+    "description": "Класически Tele звук с модерна свиримост. Отлична за кънтри, инди и рок."
+  },
+  {
+    "slug": "ibanez-rg550-genesis-purple-neon",
+    "description": "Бърз гриф и силен звук с HSH конфигурация. Подходяща за метъл, прогресив и сола."
+  },
+  {
+    "slug": "esp-ltd-ec-256-black-satin",
+    "description": "Single-cut модел с два humbucker адаптера и плътен тон. Добър избор за рок и метъл."
+  },
+  {
+    "slug": "yamaha-pacifica-112v-vintage-white",
+    "description": "Универсална електрическа китара за начинаещи и напреднали. HSS конфигурация за широк диапазон от звуци."
+  },
+  {
+    "slug": "epiphone-les-paul-standard-50s-goldtop",
+    "description": "Класически Les Paul характер с топъл humbucker тон и винтидж усещане."
+  },
+  {
+    "slug": "boss-katana-50-mkii-amp",
+    "description": "Универсален комбо усилвател с различни модели и вградени ефекти. Подходящ за репетиции и домашно свирене."
+  },
+  {
+    "slug": "ernie-ball-regular-slinky-10-46",
+    "description": "Комплект никелови струни за електрическа китара, размер 10–46. Баланс между удобство и тон."
+  },
+  {
+    "slug": "daddario-exl110-10-46",
+    "description": "Никелови струни за електрическа китара, размер 10–46. Ясен тон и стабилно усещане."
+  },
+  {
+    "slug": "graph-tech-tusq-xl-nut-42mm-black",
+    "description": "Самосмазващ нът за по-добра стабилност на настройката и по-малко „засядане“ на струните. Ширина 42 мм."
+  },
+  {
+    "slug": "fender-locking-tuners-6-inline-chrome",
+    "description": "Заключващи ключове за по-бърза смяна на струни и по-стабилна настройка. 6-in-line, хром."
+  },
+  {
+    "slug": "seymour-duncan-jb-tb4-bridge-humbucker",
+    "description": "Високоизходен bridge humbucker с изразени среди и сустейн. Подходящ за рок и метъл."
+  },
+  {
+    "slug": "gotoh-tune-o-matic-bridge-ge103b-chrome",
+    "description": "Tune-o-matic мост като заместител за много single-cut модели. Хромирано покритие."
+  },
+  {
+    "slug": "dunlop-tortex-0-88-pack-12",
+    "description": "Здрави перца с постоянен захват и атака. Дебелина 0.88 мм, пакет 12 бр."
+  },
+  {
+    "slug": "planet-waves-instrument-cable-3m-ss",
+    "description": "Инструментален кабел 3 м с прави жакове. Надежден за репетиции и сцена."
+  },
+  {
+    "slug": "guitar-stand-folding-universal",
+    "description": "Сгъваема стойка за китара, съвместима с повечето електрически и акустични модели."
+  },
+  {
+    "slug": "strap-locks-pair-chrome",
+    "description": "Комплект strap locks (2 бр.) за по-сигурно закрепване на колана. Хром."
+  }
+]

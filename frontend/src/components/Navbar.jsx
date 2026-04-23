@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
+import { t } from "../i18n/t";
 
 function NavItem({ to, children }) {
   return (
@@ -30,16 +31,16 @@ export default function Navbar() {
             </div>
             <div className="leading-tight">
               <div className="text-sm font-semibold tracking-tight">GuitarShop</div>
-              <div className="text-xs text-zinc-400">Guitars • Parts • Gear</div>
+              <div className="text-xs text-zinc-400">Китари • Части • Аксесоари</div>
             </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-5 text-sm">
-            <NavItem to="/">Продукти</NavItem>
+            <NavItem to="/">{t("nav.products")}</NavItem>
             <NavItem to="/cart">
-              Количка <span className="badge ml-1">{items.length}</span>
+              {t("nav.cart")} <span className="badge ml-1">{items.length}</span>
             </NavItem>
-            {user?.role === "admin" && <NavItem to="/admin">Admin</NavItem>}
+            {user?.role === "admin" && <NavItem to="/admin">{t("nav.admin")}</NavItem>}
           </div>
 
           <div className="flex items-center gap-2">
@@ -49,13 +50,17 @@ export default function Navbar() {
                   {user.email}
                 </span>
                 <button onClick={logout} className="btn btn-ghost">
-                  Изход
+                  {t("nav.logout")}
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="btn btn-ghost">Вход</Link>
-                <Link to="/register" className="btn btn-primary">Регистрация</Link>
+                <Link to="/login" className="btn btn-ghost">
+                  {t("nav.login")}
+                </Link>
+                <Link to="/register" className="btn btn-primary">
+                  {t("nav.register")}
+                </Link>
               </>
             )}
           </div>

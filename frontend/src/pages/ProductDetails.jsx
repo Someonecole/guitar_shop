@@ -1,8 +1,8 @@
-// frontend/src/pages/ProductDetails.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { http } from "../api/http";
 import { useCart } from "../context/CartContext";
+import { t } from "../i18n/t";
 
 export default function ProductDetails() {
   const { slug } = useParams();
@@ -27,7 +27,9 @@ export default function ProductDetails() {
             {p.images?.[0] ? (
               <img src={p.images[0]} alt={p.title} className="h-full w-full object-cover" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-zinc-500">No image</div>
+              <div className="flex h-full w-full items-center justify-center text-zinc-500">
+                {t("product.noImage")}
+              </div>
             )}
           </div>
         </div>
@@ -39,28 +41,30 @@ export default function ProductDetails() {
               <h1 className="mt-1 text-xl font-semibold">{p.title}</h1>
               <div className="mt-2 flex gap-2">
                 <span className="badge">{p.category}</span>
-                <span className="badge">stock: {p.stock}</span>
+                <span className="badge">
+                  {t("product.stock")}: {p.stock}
+                </span>
               </div>
             </div>
             <div className="text-right">
-              <div className="text-2xl font-semibold">{p.price.toFixed(2)} €</div>
+              <div className="text-2xl font-semibold">{Number(p.price).toFixed(2)} €</div>
             </div>
           </div>
 
           <button onClick={() => add(p, 1)} className="btn btn-primary mt-5 w-full">
-            Добави в количка
+            {t("product.addToCart")}
           </button>
 
           <div className="mt-5 space-y-3 text-sm text-zinc-300">
             {p.description ? <p>{p.description}</p> : null}
 
             <div className="rounded-xl border border-zinc-800/70 p-4">
-              <div className="text-xs text-zinc-400 mb-2">Specs</div>
+              <div className="text-xs text-zinc-400 mb-2">{t("product.specs")}</div>
               <div className="grid gap-1">
-                <div>Body: {p.specs?.body || "-"}</div>
-                <div>Neck: {p.specs?.neck || "-"}</div>
-                <div>Pickups: {p.specs?.pickups || "-"}</div>
-                <div>Color: {p.specs?.color || "-"}</div>
+                <div>Тяло: {p.specs?.body || "-"}</div>
+                <div>Шийка: {p.specs?.neck || "-"}</div>
+                <div>Адаптери: {p.specs?.pickups || "-"}</div>
+                <div>Цвят: {p.specs?.color || "-"}</div>
               </div>
             </div>
           </div>
