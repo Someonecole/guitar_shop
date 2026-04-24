@@ -3,13 +3,13 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import { connectDB } from "../backend/src/config/db.js";
-import { notFound, errorHandler } from "../backend/src/middleware/error.js";
+import { connectDB } from "../../backend/src/config/db.js";
+import { notFound, errorHandler } from "../../backend/src/middleware/error.js";
 
-import authRoutes from "../backend/src/routes/auth.routes.js";
-import productRoutes from "../backend/src/routes/product.routes.js";
-import orderRoutes from "../backend/src/routes/order.routes.js";
-import stripeRoutes from "../backend/src/routes/stripe.routes.js";
+import authRoutes from "../../backend/src/routes/auth.routes.js";
+import productRoutes from "../../backend/src/routes/product.routes.js";
+import orderRoutes from "../../backend/src/routes/order.routes.js";
+import stripeRoutes from "../../backend/src/routes/stripe.routes.js";
 
 const app = express();
 
