@@ -10,6 +10,8 @@ export function AuthProvider({ children }) {
     return raw ? JSON.parse(raw) : null;
   });
 
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+
   useEffect(() => {
     if (token) localStorage.setItem("token", token);
     else localStorage.removeItem("token");
@@ -19,6 +21,14 @@ export function AuthProvider({ children }) {
     if (user) localStorage.setItem("user", JSON.stringify(user));
     else localStorage.removeItem("user");
   }, [user]);
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    // Tailwind: dark mode чрез class на html
+    const root = document.documentElement;
+    if (theme === "dark") root.classList.add("dark");
+    else root.classList.remove("dark");
+  }, [theme]);
 
   async function login(email, password) {
     const data = await http("/api/auth/login", { method: "POST", body: { email, password } });
@@ -37,7 +47,14 @@ export function AuthProvider({ children }) {
     setUser(null);
   }
 
-  const value = useMemo(() => ({ token, user, login, register, logout }), [token, user]);
+  function toggleTheme() {
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  }
+
+  const value = useMemo(
+    () => ({ token, user, login, register, logout, theme, toggleTheme }),
+    [token, user, theme]
+  );
 
   return <AuthCtx.Provider value={value}>{children}</AuthCtx.Provider>;
 }

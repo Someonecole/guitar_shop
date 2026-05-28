@@ -1,3 +1,4 @@
+// frontend/src/components/Navbar.jsx
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -18,7 +19,7 @@ function NavItem({ to, children }) {
 }
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user, logout, theme, toggleTheme } = useAuth();
   const { items } = useCart();
 
   return (
@@ -44,6 +45,10 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
+            <button onClick={toggleTheme} className="btn btn-ghost" title="Theme">
+              {theme === "dark" ? "🌙" : "☀️"}
+            </button>
+
             {user ? (
               <>
                 <span className="hidden sm:inline text-xs text-zinc-400">
